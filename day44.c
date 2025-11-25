@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    int spaces = 0, digits = 0, special = 0;
+    int i = 0;
+
+    // Input string (including spaces)
+    fgets(str, sizeof(str), stdin);
+
+    // Traverse the string
+    while (str[i] != '\0' && str[i] != '\n') {
+        char ch = str[i];
+
+        if (ch == ' ')
+            spaces++;
+        else if (ch >= '0' && ch <= '9')
+            digits++;
+        else if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')))
+            special++;  // Not letter, digit, or space → special
+
+        i++;
+    }
+
+    printf("Spaces=%d, Digits=%d, Special=%d", spaces, digits, special);
+    return 0;
+}
+
+
+
+
+
+//
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    int i = 0;
+
+
+    fgets(str, sizeof(str), stdin);
+
+
+    while (str[i] != '\0' && str[i] != '\n') {
+        if (str[i] == ' ') {
+            str[i] = '-';
+        }
+        i++;
+    }
+
+    printf("%s", str);
+    return 0;
+}
